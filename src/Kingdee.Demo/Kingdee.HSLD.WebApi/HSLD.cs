@@ -9,7 +9,16 @@ namespace Kingdee.HSLD.WebApi
     [TestClass]
     public class HSLD
     {
-        
+        [TestMethod]
+        public void Test_Connect()
+        {
+            //初始化
+            var clienter = new K3CloudApi();
+            StringBuilder error = new StringBuilder();
+            //测试连接
+            RepoResult reporesult = clienter.CheckAuthInfo();
+            Assert.IsTrue(reporesult.ResponseStatus.IsSuccess);
+        }
         
         /// <summary>
         /// 基础管理--基础资料--物料
